@@ -1,0 +1,39 @@
+{
+  "name": "pokemon-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon babel-node src/server.js",
+    "dev:start": "clear; nodemon --exec babel-node src/server.js",
+    "pretest": "eslint --ignore-path .gitignore ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "nodemon": "^2.0.14"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.1.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "mongoose-unique-validator": "^3.0.0",
+    "nodemailer": "^6.7.0",
+    "nodemailer-sendgrid": "^1.0.3",
+    "slugify": "^1.6.1"
+  }
+}
