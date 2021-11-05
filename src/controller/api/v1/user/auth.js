@@ -59,7 +59,7 @@ exports.login = async(req, res, next) => {
 
     // destructure the request body
     const { email, password } = req.body;
-
+    console.log(email);
     // verify user email
     const user = await User.findOne({email: email});
     if (!user) {
@@ -82,6 +82,8 @@ exports.login = async(req, res, next) => {
     const token = jwt.sign({id: user._id, email: user.email}, process.env.JWT_SECRET_KEY, {
       expiresIn: '2h',
     });
+
+    
 
     return res.status(200).json({
       type: 'success',
