@@ -3,7 +3,6 @@ const User = require('../model/user');
 
 const authenticateUserToken = async(req, res, next) => {
   try {
-    console.log(req.headers.authorization);
     const bearerToken = req.headers.authorization.split(' ')[1];
     if (bearerToken === null) res.sendStatus(401);
     const decoded = jwt.verify(bearerToken, process.env.JWT_SECRET_KEY);

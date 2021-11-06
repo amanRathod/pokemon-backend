@@ -59,7 +59,6 @@ exports.login = async(req, res, next) => {
 
     // destructure the request body
     const { email, password } = req.body;
-    console.log(email);
     // verify user email
     const user = await User.findOne({email: email});
     if (!user) {

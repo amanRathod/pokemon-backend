@@ -49,7 +49,7 @@ exports.forgotPassword = async(req, res, next) => {
       subject: 'Password Reset',
       html: `
         <h5> You are receiving this because you (or someone else) have requested the reset of the password for your account..</h5>
-        <p>Please click on this <a href='https://blogthese.netlify.app/reset-password/${token}'>link</a> to reset Password</p>
+        <p>Please click on this <a href='http://localhost:3000/reset-password/${token}'>link</a> to reset Password</p>
         <h5>If you did not request this, please ignore this email and your password will remain unchanged.</h5>
       `,
     };
@@ -119,7 +119,6 @@ exports.resetPassword = async(req, res, next) => {
     });
 
   } catch (err) {
-    console.log(err);
     next(err);
   }
 };

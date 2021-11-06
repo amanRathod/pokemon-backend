@@ -13,9 +13,9 @@ exports.addFavourite = async(req, res) => {
           });
         }
         
-        const { name, id } = req.params;
+        const { name } = req.body;
 
-        const user = await User.findOne({_id: id});
+        const user = await User.findOne({_id: req.user.id});
         if (!user) {
           return res.status(404).json({
             type: 'error',
@@ -24,12 +24,12 @@ exports.addFavourite = async(req, res) => {
         }
 
         if(user.favourite.includes(name)){
-          await User.findByIdAndUpdate({_id: id}, {$pull: {favourite: name}});
+          await User.findByIdAndUpdate({_id: req.user.id}, {$pull: {favourite: name}});
         } else {
-          await User.findByIdAndUpdate({_id: id}, {$addToSet: {favourite: name}});
+          await User.findByIdAndUpdate({_id: req.user.id}, {$addToSet: {favourite: name}});
         }
 
-        const userData = await User.findOne({_id: id});
+        const userData = await User.findOne({_id: req.user.id});
 
         res.status(200).json({
           type: 'success',
